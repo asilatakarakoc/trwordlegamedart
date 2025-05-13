@@ -61,14 +61,6 @@ class _WordleGameState extends State<WordleGame> {
   String message = '';
   Map<String, LetterFeedback> keyboardStatus = {};
 
-  // Turkish alphabet for Wordle keyboard
-  static const List<String> turkishKeyboardRows = [
-    'E R T Y U I O P Ü Ğ',
-    'A S D F G H J K L Ş İ',
-    'Z C V B N M Ö Ç',
-    'Q W X'
-  ];
-
   // Turkish Q keyboard rows (classic order)
   static const List<List<String>> turkishQKeyboardRows = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'Ğ', 'Ü'],
@@ -277,8 +269,8 @@ class _WordleGameState extends State<WordleGame> {
 
   Widget buildKeyboard() {
     final screenWidth = MediaQuery.of(context).size.width;
-    final keySpacing = 4.0;
-    final horizontalPadding = 16.0;
+    double keySpacing = 4.0;
+    double horizontalPadding = 16.0;
     final availableWidth = screenWidth - 2 * horizontalPadding;
 
     // Always use the first row's key count for sizing all keys
