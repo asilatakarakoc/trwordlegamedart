@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MainPage(),
+      debugShowCheckedModeBanner: false,
+      // Uygulama simgesi Flutter'ın logosu değildir, uygulama simgesi (icon) native olarak ayarlanır.
     );
   }
 }
@@ -27,14 +29,24 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Türkçe Wordle'), centerTitle: true),
       body: Center(
-        child: ElevatedButton(
-          child: const Text('Oyna', style: TextStyle(fontSize: 24)),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const WordleGame()),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Sonsuz Türkçe Wordle',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Oyna', style: TextStyle(fontSize: 24)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const WordleGame()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
